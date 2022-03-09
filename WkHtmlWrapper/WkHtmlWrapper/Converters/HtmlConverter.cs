@@ -37,28 +37,28 @@ namespace WkHtmlWrapper.Converters
             this._htmlToImageConverter = htmlToImageConverter;
         }
 
-        public async Task ToImageAsync(string html, string outputFile) =>
+        public async Task<string> ToImageAsync(string html, string outputFile) =>
             await _htmlToImageConverter.ConvertAsync(html, outputFile);
 
-        public async Task ToImageAsync(string html, string outputFile, GeneralImageOptions options) =>
+        public async Task<string> ToImageAsync(string html, string outputFile, GeneralImageOptions options) =>
             await _htmlToImageConverter.ConvertAsync(html, outputFile, options);
 
-        public async Task ToImageAsync(Stream html, string outputFile) =>
+        public async Task<string> ToImageAsync(Stream html, string outputFile) =>
             await _htmlToImageConverter.ConvertAsync(html, outputFile);
 
-        public async Task ToImageAsync(Stream html, string outputFile, GeneralImageOptions options) =>
+        public async Task<string> ToImageAsync(Stream html, string outputFile, GeneralImageOptions options) =>
             await _htmlToImageConverter.ConvertAsync(html, outputFile, options);
 
-        public async Task ToPdfAsync(string html, string outputFile) =>
+        public async Task<string> ToPdfAsync(string html, string outputFile) =>
             await _htmlToPdfConverter.ConvertAsync(html, outputFile);
 
-        public async Task ToPdfAsync(string html, string outputFile, GeneralPdfOptions options) =>
+        public async Task<string> ToPdfAsync(string html, string outputFile, GeneralPdfOptions options) =>
             await _htmlToPdfConverter.ConvertAsync(html, outputFile, options);
 
-        public async Task ToPdfAsync(Stream html, string outputFile) =>
+        public async Task<string> ToPdfAsync(Stream html, string outputFile) =>
             await _htmlToPdfConverter.ConvertAsync(html, outputFile);
 
-        public async Task ToPdfAsync(Stream html, string outputFile, GeneralPdfOptions options) =>
+        public async Task<string> ToPdfAsync(Stream html, string outputFile, GeneralPdfOptions options) =>
             await _htmlToPdfConverter.ConvertAsync(html, outputFile, options);
     }
 }

@@ -6,12 +6,12 @@ namespace WkHtmlWrapper.Core.Converters.Interfaces
 {
     public interface IConverter<TOptions> where TOptions: IOptions
     {
-        Task ConvertAsync(string html, string outputFile);
+        Task<string> ConvertAsync(string html, string outputFile);
 
-        Task ConvertAsync(string html, string outputFile, TOptions options);
+        Task<string> ConvertAsync(string html, string outputFile, TOptions options);
 
-        Task ConvertAsync(Stream html, string outputFile);
+        Task<string> ConvertAsync(Stream html, string outputFile);
 
-        Task ConvertAsync(Stream html, string outputFile, TOptions options);
+        Task<string> ConvertAsync(Stream html, string outputFile, TOptions options);
     }
 }

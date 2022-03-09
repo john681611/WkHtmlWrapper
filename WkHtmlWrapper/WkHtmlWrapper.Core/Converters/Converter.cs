@@ -28,21 +28,22 @@ namespace WkHtmlWrapper.Core.Converters
             this.processService = processService;
         }
 
-        public async Task ConvertAsync(string html, string outputFile) =>
+        public async Task<string> ConvertAsync(string html, string outputFile) =>
             await ConvertAsync(html, outputFile, new TOptions());
 
-        public async Task ConvertAsync(string html, string outputFile, TOptions options) =>
+        public async Task<string> ConvertAsync(string html, string outputFile, TOptions options) =>
             await ConvertAsync(new MemoryStream(Encoding.UTF8.GetBytes(html)), outputFile, options);
 
-        public async Task ConvertAsync(Stream html, string outputFile) =>
+        public async Task<string> ConvertAsync(Stream html, string outputFile) =>
             await ConvertAsync(html, outputFile, new TOptions());
 
-        public async Task ConvertAsync(Stream html, string outputFile, TOptions options)
+        public async Task<string> ConvertAsync(Stream html, string outputFile, TOptions options)
         {
             var inputFilePath = SaveFile(html);
             var arguments = $"{options.OptionsToCommandLineParameters()} {inputFilePath} {outputFile}";
-            await processService.StartAsync(GetExecutablePath(), arguments);
+            var logs = await processService.StartAsync(GetExecutablePath(), arguments);
             File.Delete(inputFilePath);
+            return logs;
         }
         
         private string GetExecutablePath() =>

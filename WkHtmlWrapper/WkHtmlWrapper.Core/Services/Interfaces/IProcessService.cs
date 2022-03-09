@@ -7,6 +7,6 @@ namespace WkHtmlWrapper.Core.Services.Interfaces
 {
     internal interface IProcessService
     {
-        Task StartAsync(string filename, string arguments);
+        Task<string> StartAsync(string filename, string arguments);
     }
 }

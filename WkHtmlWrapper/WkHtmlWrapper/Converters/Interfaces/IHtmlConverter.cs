@@ -7,20 +7,20 @@ namespace WkHtmlWrapper.Converters.Interfaces
 {
     public interface IHtmlConverter
     {
-        Task ToImageAsync(string html, string outputFile);
+        Task<string> ToImageAsync(string html, string outputFile);
 
-        Task ToImageAsync(string html, string outputFile, GeneralImageOptions options);
+        Task<string> ToImageAsync(string html, string outputFile, GeneralImageOptions options);
 
-        Task ToImageAsync(Stream html, string outputFile);
+        Task<string> ToImageAsync(Stream html, string outputFile);
 
-        Task ToImageAsync(Stream html, string outputFile, GeneralImageOptions options);
+        Task<string> ToImageAsync(Stream html, string outputFile, GeneralImageOptions options);
 
-        Task ToPdfAsync(string html, string outputFile);
+        Task<string> ToPdfAsync(string html, string outputFile);
 
-        Task ToPdfAsync(string html, string outputFile, GeneralPdfOptions options);
+        Task<string> ToPdfAsync(string html, string outputFile, GeneralPdfOptions options);
 
-        Task ToPdfAsync(Stream html, string outputFile);
+        Task<string> ToPdfAsync(Stream html, string outputFile);
 
-        Task ToPdfAsync(Stream html, string outputFile, GeneralPdfOptions options);
+        Task<string> ToPdfAsync(Stream html, string outputFile, GeneralPdfOptions options);
     }
 }
