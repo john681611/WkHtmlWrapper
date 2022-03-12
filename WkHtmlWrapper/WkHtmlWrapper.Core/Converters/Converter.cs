@@ -40,7 +40,7 @@ namespace WkHtmlWrapper.Core.Converters
         public async Task<string> ConvertAsync(Stream html, string outputFile, TOptions options)
         {
             var inputFilePath = SaveFile(html);
-            var arguments = $"{options.OptionsToCommandLineParameters()} {inputFilePath} {outputFile}";
+            var arguments = $"{options.OptionsToCommandLineParameters()} \"{inputFilePath}\" \"{outputFile}\"";
             var logs = await processService.StartAsync(GetExecutablePath(), arguments);
             File.Delete(inputFilePath);
             return logs;
